@@ -1,6 +1,7 @@
 package com.example.springlog;
 
 import com.example.springlog.component.DemoBean;
+import com.example.springlog.component.EmployeeBean;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +20,10 @@ public class SpringLoggerApplication {
 		ApplicationContext context = SpringApplication.run(SpringLoggerApplication.class, args);
 		logger.debug("Checking Context: {}", context.getBean(DemoBean.class));
 		logger.debug("\n*** Example using @Autowire annotation on property ***");
+		EmployeeBean employeeBean = context.getBean(EmployeeBean.class);
+		employeeBean.setEid(104);
+		employeeBean.setEname("Spring framework");
+		employeeBean.showEmployeeDetails();
 	}
 
 }
